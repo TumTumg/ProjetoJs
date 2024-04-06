@@ -306,21 +306,26 @@ function verificarPrimo() {
     }
 }
 
-function factorial() {
-    var i;
-    var num1;
-
+function calcularFatorial() {
     num1 = parseInt(document.getElementById("tpNum").value);
-  
-     if(res === 0) { return }
-     else {
-       num1 = 1;
-       for (i = 1; i <= res; i +=1) {
-       num1 *= i;
-       }
-     }
-     document.getElementById("resultado").value = "Fatorial" + num1;
-  }
+    var resultado = 1;
+
+    
+
+    // Verifica se o número fornecido é válido
+    if (num1 < 0) {
+        document.getElementById("resultado").value = "Não é possível calcular o fatorial de um número negativo.";
+        return;
+    }
+
+    // Calcula o fatorial
+    for (var i = 2; i <= num1; i++) {
+        resultado *= i;
+    }
+
+    // Exibe o resultado na página HTML
+    document.getElementById("resultado").value = "O fatorial de " + num1 + " é: " + resultado;
+}
   
 
 
