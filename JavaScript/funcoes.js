@@ -8,7 +8,7 @@ function somar(){
     num2 = parseInt(document.getElementById("tsNum").value);
     //Realizando o calculo
     res = num1 + num2;
-    document.getElementById("resultado").innerHTML = "A soma dos numeros é: " + res;
+    document.getElementById("resultado").value = "A soma dos numeros é: " + res;
 }//Fim do método
 
 function subtrair(){
@@ -21,7 +21,7 @@ function subtrair(){
     num2 = parseInt(document.getElementById("tsNum").value);
     //Realizando o calculo
     res = num1 - num2;
-    document.getElementById("resultado").innerHTML = "A subtração dos numeros é: " + res;
+    document.getElementById("resultado").value = "A subtração dos numeros é: " + res;
 }//Fim do método
 
 function multiplicar(){
@@ -34,7 +34,7 @@ function multiplicar(){
     num2 = parseInt(document.getElementById("tsNum").value);
     //Realizando o calculo
     res = num1 * num2;
-    document.getElementById("resultado").innerHTML = "A multiplicação dos numeros é: " + res;
+    document.getElementById("resultado").value = "A multiplicação dos numeros é: " + res;
 }//Fim do método
 
 function dividir(){
@@ -52,7 +52,7 @@ function dividir(){
         res = num1 / num2;
     }
     //Faço a resposta
-    document.getElementById("resultado").innerHTML = "A divisão dos numeros é: " + res;
+    document.getElementById("resultado").value = "A divisão dos numeros é: " + res;
 }//Fim do método
 
 
@@ -189,18 +189,149 @@ function numerosPares() {
     }
 }
 
-function umAoCem(){
-    // Declaração de Variáveis
-    var soma = 0; // Inicializamos a soma com zero
-    var numero; //Declaramos a variável numero
-    // Loop de Soma
-    for (numero = 1; numero <= 100; numero++) {
-        soma += numero; // Adiciona o número atual à soma
+function umAoCem() {
+    var soma = 0;
+    for (var numero = 1; numero <= 100; numero++) {
+        soma += numero;
     }
-    resultado.value = ""; // Limpa o conteúdo anterior
-    // Exibição do Resultado
-    document.getElementById("resultado").textContent = "A soma dos números de 1 a 100 é: " + soma;
+    document.getElementById("resultado").value = "A soma dos números de 1 a 100 é: " + soma;
 }
+
+
+function multiplo5() {
+    var resultado = document.getElementById("resultado"); // Elemento onde os resultados serão exibidos
+    resultado.value = ""; // Limpa o conteúdo anterior
+    
+    var multiplos = ""; // Variável para armazenar os múltiplos de 5
+    
+    // Loop para encontrar e armazenar os múltiplos de 5
+    for (var numero = 5; numero <= 50; numero += 5) {
+        multiplos += numero + ", "; // Adiciona o número à lista de múltiplos
+    }
+    
+    // Exibição dos múltiplos de 5
+    resultado.value = multiplos === "" ? "Não há múltiplos de 5 de 1 a 50." : "Os múltiplos de 5 de 1 a 50 são: " + multiplos.slice(0, -2); // Exibe os múltiplos sem a última vírgula e espaço ou mensagem de ausência de múltiplos
+}
+
+function indoAte(){
+    var num1; // Declarando variável para armazenar o número fornecido pelo usuário
+    var res = ""; // Inicializando a variável para armazenar os resultados
+
+    num1 = parseInt(document.getElementById("tpNum").value);
+
+    // Verificando se o número fornecido é válido (maior que zero)
+    if (num1 > 0) {
+    // Loop para imprimir os números de 1 até o número fornecido pelo usuário
+    for (var i = 1; i <= num1; i++) {
+        res += i + ", "; // Adicionando o número atual à lista de resultados
+    }
+    // Exibindo os números na página HTML
+    document.getElementById("resultado").value = "Os números de 1 a " + num1 + 
+    " são: " + res.slice(0, -2); // Removendo a vírgula e o espaço extra no final
+    } else {
+    // Caso o número fornecido não seja válido
+    document.getElementById("resultado").value = "O número fornecido não é válido. Por favor, insira um número maior que zero.";
+    }
+}
+
+function somaAte() {
+    var num1 = parseInt(document.getElementById("tpNum").value); // Armazena o número fornecido pelo usuário
+    var res = 0; // Inicializa a variável para armazenar a soma dos números
+
+    // Verifica se o número fornecido é válido (maior que zero)
+    if (num1 > 0) {
+        // Loop para somar os números de 1 até o número fornecido pelo usuário
+        for (var i = 1; i <= num1; i++) {
+            res += i; // Adiciona o número atual à soma
+        }
+        // Exibe a soma na página HTML
+        document.getElementById("resultado").value = "A soma dos números de 1 a " + num1 + " é: " + res;
+    } else {
+        // Caso o número fornecido não seja válido
+        document.getElementById("resultado").value = "O número fornecido não é válido. Por favor, insira um número maior que zero.";
+    }
+}
+
+function primosAte20() {
+    var resultado = "Números primos de 1 a 20: ";
+
+    // Loop para verificar os números de 1 a 20
+    for (var num = 1; num <= 20; num++) {
+        var primo = true; // Assume que o número é primo inicialmente
+
+        // Verifica se o número é divisível por algum número diferente de 1 e ele mesmo
+        for (var i = 2; i < num; i++) {
+            if (num % i === 0) {
+                primo = false; // Se for divisível, não é primo
+                break; // Sai do loop
+            }
+        }
+
+        // Se o número for primo, adiciona-o ao resultado
+        if (primo && num > 1) {
+            resultado += num + " ";
+        }
+    }
+
+    // Exibe os números primos
+    document.getElementById("resultado").value = resultado;
+}
+
+function verificarPrimo() {
+    var num1
+
+    num1 = parseInt(document.getElementById("tpNum").value);
+
+    // Verifica se o número é menor ou igual a 1
+    if (num1 <= 1) {
+        document.getElementById("resultado").value = "O número " + num1 + " não é primo.";
+        return;
+    }
+
+    var primo = true; // Assume que o número é primo inicialmente
+
+    // Loop para verificar se o número é divisível por algum número diferente de 1 e ele mesmo
+    for (var i = 2; i < num1; i++) {
+        if (num1 % i === 0) {
+            primo = false; // Se for divisível, não é primo
+            break; // Sai do loop 
+        }
+    }
+
+    // Exibe o resultado na página HTML
+    if (primo) {
+        document.getElementById("resultado").value = "O número " + num1 + " é primo.";
+    } else {
+        document.getElementById("resultado").value = "O número " + num1 + " não é primo.";
+    }
+}
+
+function factorial() {
+    var i;
+    var num1;
+
+    num1 = parseInt(document.getElementById("tpNum").value);
+  
+     if(res === 0) { return }
+     else {
+       num1 = 1;
+       for (i = 1; i <= res; i +=1) {
+       num1 *= i;
+       }
+     }
+     document.getElementById("resultado").value = "Fatorial" + num1;
+  }
+  
+
+
+
+
+
+
+   
+
+
+
 
  
 
