@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
     <script type="text/Javascript" src="../JavaScript/funcoes.js"></script>
-    <title>Página Principal</title>
+    <title>Cálculos do Zambotti</title>
 </head>
 <body>
+
+    <header id="cabecalho">
+
+        <nav>   Cálculos do Zambotti    </nav>
+    </header>
+
     <form>
         <label name="pNum">Primeiro Número: </label>
         <input type="number" name="tpNum" id="tpNum"><br><br>
@@ -37,9 +44,16 @@
     <button type="submit" onclick="indoAte()"> Indo até o número digitado  </button>
     <button type="submit" onclick="somaAte()"> Somando até o número digitado!  </button>
     <button type="submit" onclick="primosAte20()"> Números primos até 20  </button>
-    <button type="submit" onclick="verificarPrimo()"> Números primos até 20  </button>
+    <button type="submit" onclick="verificarPrimo()"> Verificando se é número primo  </button>
     <button type="submit" onclick="calcularFatorial()"> Número Fatorial  </button><br><br>
+    <button type="submit" onclick="fibonacci()"> Calcular Fibonacci  </button>
+    <button type="submit" onclick="imprimirParesEImpares()"> Pares e Ímpares até o número digitado </button>
+    <button type="submit" onclick="verificarPrimos()"> Números primos até o número digitado </button>
+    <button type="submit" onclick="verificarNumeroPerfeito()"> Verificando se o número é perfeito </button><br><br>
 
     <textArea id="resultado" rows="100" cols="30" readonly></textArea>
+    
+
+    <footer>Desenvolvido por Daniel Pogiatto Zambotti Lima</footer>
 </body>
 </html>

@@ -326,7 +326,94 @@ function calcularFatorial() {
     // Exibe o resultado na página HTML
     document.getElementById("resultado").value = "O fatorial de " + num1 + " é: " + resultado;
 }
-  
+
+function fibonacci() {
+    var resultado = document.getElementById("resultado");
+    resultado.value = ""; 
+
+    var termo1 = 0;
+    var termo2 = 1;
+    var proximoTermo;
+
+    // Imprime os dois primeiros termos da sequência de Fibonacci
+    resultado.value += termo1 + ", " + termo2 + ", ";
+
+    // Calcula e imprime os próximos termos até o décimo
+    for (var i = 3; i <= 10; i++) {
+        proximoTermo = termo1 + termo2;
+        resultado.value += proximoTermo + ", ";
+        termo1 = termo2;
+        termo2 = proximoTermo;
+    }
+}
+
+function imprimirParesEImpares() {
+    num1 = parseInt(document.getElementById("tpNum").value);
+
+    var pares = "";
+    var impares = "";
+
+    // Loop de 1 até o número fornecido pelo usuário
+    for (var i = 1; i <= num1; i++) {
+        // Verifica se o número atual é par ou ímpar
+        if (i % 2 === 0) {
+            pares += i + " ";
+        } else {
+            impares += i + " ";
+        }
+    }
+
+    // Exibe os números pares e ímpares no elemento de resultado
+    document.getElementById("resultado").value = "Números pares até " + num1 + ": " + pares + "\n\nNúmeros ímpares até " + num1 + ": " + impares;
+}
+
+function verificarPrimos() {
+    num1 = parseInt(document.getElementById("tpNum").value); 
+
+    var primos = "";
+
+    // Loop de 2 até o número fornecido
+    for (var i = 2; i <= num1; i++) {
+        var ehPrimo = true; // Assume que o número atual é primo
+
+        // Verifica se o número atual é divisível por qualquer número menor que ele mesmo
+        for (var j = 2; j < i; j++) {
+            if (i % j === 0) { // Se for divisível por outro número que não seja 1 e ele mesmo
+                ehPrimo = false; // Não é primo
+                break; // Sai do loop interno
+            }
+        }
+
+        // Se o número for primo, adiciona-o à string de primos
+        if (ehPrimo) {
+            primos += i + " ";
+        }
+    }
+
+    // Exibe os números primos na página
+    document.getElementById("resultado").value = "Números primos até " + num1 + ": " + primos;
+}
+
+function verificarNumeroPerfeito() {
+    num1 = parseInt(document.getElementById("tpNum").value); 
+    var somaDivisores = 0;
+
+    // Loop para encontrar os divisores do número
+    for (var i = 1; i < num1; i++) {
+        if (num1 % i === 0) {
+            somaDivisores += i; // Adiciona o divisor à soma
+        }
+    }
+
+    // Verifica se a soma dos divisores é igual ao próprio número
+    if (somaDivisores === num1) {
+        document.getElementById("resultado").value = num1 + " é um número perfeito!";
+    } else {
+        document.getElementById("resultado").value = num1 + " não é um número perfeito.";
+    }
+}
+
+
 
 
 
